@@ -9,86 +9,84 @@
   <body>
     <header class="header">
       <div class= "leftHeader">View high scores</div>
-      <div class= "timer">Time: <span class="timerCount">75</span></div>
+      <div class= "timer">Time: <span id="timerCount"></span></div>
     </header>
 
     <main>
-      <section class="section1">
+      <section id="section1">
         <h1>Coding Quiz Challenge</h1>
         <p>
           Try to answer the following code-related questions within the time limit.<br>
           Keep in mind that incorrect answers will penalize your score/time by ten seconds!
         </p>
-        <button>Start Quiz</button>
-
+        <button id="startButton">Start Quiz</button>
       </section>
 
-      <section class="questions">
+      <section class="questions q1 hide">
             <h1>Commonly used data types Do NOT Include: </h1>
             <ul>
-              <li><button>1. strings</button></li>
-              <li><button>2. booleans</button></li>
-              <li><button>3. alerts</button></li>
-              <li><button>4. numbers</button></li>
+              <li><button class="wrongAnswer">1. strings</button></li>
+              <li><button class="wrongAnswer">2. booleans</button></li>
+              <li><button class="correctAnswer">3. alerts</button></li>
+              <li><button class="wrongAnswer">4. numbers</button></li>
             </ul>
             <p>fdhrghdftg</p>
       </section>
 
-      <section class="questions">
+      <section class="questions q2 hide">
         <h1>The condition in an if / else statement is enclosed with _____. </h1>
         <ul>
-          <li><button>1. quotes</button></li>
-          <li><button>2. curly brackets</button></li>
-          <li><button>3. parenthesis</button></li>
-          <li><button>4. square brackets</button></li>
+          <li><button class="wrongAnswer">1. quotes</button></li>
+          <li><button class="wrongAnswer">2. curly brackets</button></li>
+          <li><button class="correctAnswer">3. parenthesis</button></li>
+          <li><button class="wrongAnswer">4. square brackets</button></li>
         </ul>
         <p>fdhrghdftg</p>
       </section>
 
-      <section class="questions">
+      <section class="questions q3 hide">
         <h1>Arrays in JavaScript can be used to store _____. </h1>
         <ul>
-          <li><button>1. numbers and strings</button></li>
-          <li><button>2. other arrays</button></li>
-          <li><button>3. booleans</button></li>
-          <li><button>4. all of the above</button></li>
+          <li><button class="wrongAnswer">1. numbers and strings</button></li>
+          <li><button class="wrongAnswer">2. other arrays</button></li>
+          <li><button class="wrongAnswer">3. booleans</button></li>
+          <li><button class="correctAnswer">4. all of the above</button></li>
         </ul>
         <p>fdhrghdftg</p>
       </section>
 
-      <section class="questions">
+      <section class="questions q4 hide">
         <h1>String values must be enclosed within _____ when being assigned to variables. </h1>
         <ul>
-          <li><button>1. commas</button></li>
-          <li><button>2. curly brackets</button></li>
-          <li><button>3. quotes</button></li>
-          <li><button>4. parenthesis</button></li>
+          <li><button class="wrongAnswer">1. commas</button></li>
+          <li><button class="wrongAnswer">2. curly brackets</button></li>
+          <li><button class="wrongAnswer">3. quotes</button></li>
+          <li><button class="correctAnswer">4. parenthesis</button></li>
         </ul>
         <p>fdhrghdftg</p>
       </section>
 
-      <section class="questions">
+      <section class="questions q5 hide">
         <h1>A very useful tool used during development and debugging for printing content to the debugger is:</h1>
         <ul>
-          <li><button>1. JavaScript</button></li>
-          <li><button>2. terminal/bash</button></li>
-          <li><button>3. for loops</button></li>
-          <li><button>4. console.log</button></li>
+          <li><button class="wrongAnswer">1. JavaScript</button></li>
+          <li><button class="wrongAnswer">2. terminal/bash</button></li>
+          <li><button class="wrongAnswer">3. for loops</button></li>
+          <li><button class="correctAnswer">4. console.log</button></li>
         </ul>
         <p>fdhrghdftg</p>
       </section>
 
-      <section class="allDone">
+      <section class="summary hide">
         <h1>All done!</h1>
-        <p>Your final score is <span></span>.</p>
+        <p>Your final score is <span class="finalScore"></span>.</p>
         <div>
           <p>Enter initials: </p>
-          
         </div>
       </section>
 
       
     </main>
-    <!-- <script src="Assets/script.js"></script> -->
+    <script src="Assets/script.js"></script>
   </body>
 </html>
