@@ -2,69 +2,85 @@ var startPage = document.querySelector("#section1");
 var timerCount = document.querySelector("#timerCount");
 var buttons = document.getElementsByTagName("button");
 var startButton = document.querySelector("#startButton");
-
-var correctSelection = document.getElementsByClassName("correctAnswer");
-var wrongSelection = document.getElementsByClassName("wrongAnswer");
+var selectedButton;
 var questions = Array.from(document.querySelectorAll(".questions"));
 var questionsIndexNumber = 0;
 var pTag = document.getElementsByTagName("p");
-var selectedButton;
 var correct = 0;
 var wrong = 0; 
-var finalScore = document.querySelector(".start-button");
-var chosenItem = "";
-var iscorrect = false;
-var timer;
+var finalScore = document.querySelector(".finalScore");
+
+var timerEl = document.querySelector("#timer");
+var timerCount = 5;
+var summaryPage = document.querySelector(".summary");
 
 function startQuiz(){
+  finalScore.textContent = 0;
   startPage.classList.add("hide");
   questions[0].classList.remove("hide");
   renderQuestionPage();
 }
 
 function renderQuestionPage (){
-
+  timer();
   for (let i = 1; i < buttons.length; i++) {
     buttons[i].addEventListener("click", function() {
     selectedButton = buttons[i].className;
-    console.log(selectedButton);
     buttonCheck();
+
     });
-
   }
-
 }
 
-
-// function buttonsCheck(buttons, i) {
 function buttonCheck() {
   if(selectedButton=="correctAnswer"){
     correct ++;
     questions[questionsIndexNumber].classList.add("hide");
-    questionsIndexNumber++;
-    questions[questionsIndexNumber].classList.remove("hide");
-    // pTag.textContent="Correct!"
+    if (questionsIndexNumber<4){
+      questionsIndexNumber++;
+      questions[questionsIndexNumber].classList.remove("hide");
+    }
+    else{
+      questions[questionsIndexNumber].classList.add("hide");
+      summaryPage.classList.remove("hide");
+    }
     localStorage.setItem("Correct Answer: ", correct);
   }
   else if(selectedButton=="wrongAnswer"){
     wrong ++;
-    // pTag.textContent="Wrong!"
+    pTag[questionsIndexNumber].textContent="Wrong!"
     localStorage.setItem("Wrong Answer: ", wrong);
   }
-    // finalScore.textContent=(correct*20-wrong*20);
+
+  finalScore.textContent=correct*20;
+    if (finalScore.textContent<0){
+      finalScore.textContent=0;
+    }
+  console.log(finalScore.textContent);
 }
 
-// function timer(){
+function timer(){
+  timer = setInterval(function() {
+    timerEl.textContent = timerCount;
+    timerCount--;
 
-// }
+    if (selectedButton=="correctAnswer") {
+      }
+    if (selectedButton=="wrongAnswer") {
+      timerCount -= 10;
+    }
+    if ((timerCount === 0) || (finalScore.textContent==100)) {
+      timerEl.textContent ="";
+      clearInterval(timer);
+      endQuiz();
+    }
+  }, 1000);
+}
 
-// function answerCorrect(){
-
-// }
-
-// function answerWrong(){
-
-// }
+function endQuiz(){
+  questions[questionsIndexNumber].classList.add("hide");
+  summaryPage.classList.remove("hide");
+}
 
 
 startButton.addEventListener("click", startQuiz);

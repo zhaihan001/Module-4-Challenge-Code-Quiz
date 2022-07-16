@@ -16,7 +16,7 @@ header {
   cursor: pointer;
 }
 
-.timer{
+.timerArea{
   color:#13293d;
   float:right;
   margin-right: 50px;
@@ -44,7 +44,7 @@ h1{
   display: block;
 }
 
-#section1 p{
+#section1 div{
   font-size: 1.8em;
 }
 
@@ -63,14 +63,16 @@ button {
   margin-top: 0.6em;
 }
 
+button:hover {
+  background-color: rgb(244, 17, 161);
+}
+
 ul{
   list-style-type: none;
   text-align: center;
 }
 
-
-
-.questions p{
+p{
   text-decoration:overline;
   font-size: 1.8em;
   font-family:"Lucida Sans";
