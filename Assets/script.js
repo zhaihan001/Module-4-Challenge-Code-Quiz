@@ -1,13 +1,14 @@
 var startPage = document.querySelector("#section1");
 var timerCount = document.querySelector("#timerCount");
 var buttons = document.getElementsByTagName("button");
+var startButton = document.querySelector("#startButton");
+
 var correctSelection = document.getElementsByClassName("correctAnswer");
 var wrongSelection = document.getElementsByClassName("wrongAnswer");
-var startButton = document.querySelector("#startButton");
 var questions = Array.from(document.querySelectorAll(".questions"));
 var questionsIndexNumber = 0;
 var pTag = document.getElementsByTagName("p");
-
+var selectedButton;
 var correct = 0;
 var wrong = 0; 
 var finalScore = document.querySelector(".start-button");
@@ -22,29 +23,33 @@ function startQuiz(){
 }
 
 function renderQuestionPage (){
+
   for (let i = 1; i < buttons.length; i++) {
     buttons[i].addEventListener("click", function() {
-    buttonsCheck(this, i);
+    selectedButton = buttons[i].className;
+    console.log(selectedButton);
+    buttonCheck();
     });
+
   }
+
 }
 
-function buttonsCheck(buttons, i) {
-  console.log(i);
-  console.log(buttons.className);
-  if(buttons.className==="correctAnswer"){
+
+// function buttonsCheck(buttons, i) {
+function buttonCheck() {
+  if(selectedButton=="correctAnswer"){
     correct ++;
     questions[questionsIndexNumber].classList.add("hide");
     questionsIndexNumber++;
     questions[questionsIndexNumber].classList.remove("hide");
-    pTag.textContent="Correct!"
+    // pTag.textContent="Correct!"
     localStorage.setItem("Correct Answer: ", correct);
   }
-  else if(buttons.className==="wrongAnswer"){
+  else if(selectedButton=="wrongAnswer"){
     wrong ++;
-    pTag.textContent="Wrong!"
+    // pTag.textContent="Wrong!"
     localStorage.setItem("Wrong Answer: ", wrong);
-    return renderQuestionPage();
   }
     // finalScore.textContent=(correct*20-wrong*20);
 }
