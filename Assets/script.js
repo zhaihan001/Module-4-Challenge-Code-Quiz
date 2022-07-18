@@ -15,7 +15,9 @@ var timerCount = 75;
 var studentName = document.querySelector("#initials");
 var summaryPage = document.querySelector(".summary");
 var viewScore = document.querySelector("#viewScore");
-var scoreBoard = document.querySelector(".scoreBoard")
+var scoreBoard = document.querySelector(".scoreBoard");
+var recordItem = document.createElement("li");
+var clearButton = document.querySelector("#clear");
 
 
 function startQuiz(){
@@ -88,14 +90,13 @@ function endQuiz(){
   viewScore.classList.remove("hide");
 
   document.querySelector("#initialButton").addEventListener("click", function() {
-    localStorage.setItem("record",studentName.value + " - " + finalScore.textContent);
+    document.querySelector("#scoreList").append(recordItem.textContent = studentName.value + " - " + finalScore.textContent);
+    localStorage.setItem("record",recordItem.textContent);
     summaryPage.classList.add("hide");
-    document.querySelector("#scoreList").append(localStorage.getItem("record"));
     scoreBoard.classList.remove("hide");
 
   });
 }
-
 
 startButton.addEventListener("click", startQuiz);
 document.querySelector("#backButton").addEventListener("click", function(){
@@ -109,3 +110,9 @@ viewScore.addEventListener("click", function(){
   summaryPage.classList.add("hide");
 
 });
+
+clearButton.addEventListener("click", function(){
+  localStorage. clear();
+  document.querySelector("#scoreList").innerHTML = "";
+});
+
