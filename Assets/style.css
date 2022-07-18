@@ -7,12 +7,12 @@ header {
   align-items: center;
 }
 
-.leftHeader {
+#viewScore{
   color:rgb(190, 15, 243);
   float:left ;
 }
 
-.leftHeader:hover{
+#viewScore:hover{
   cursor: pointer;
 }
 
@@ -81,6 +81,18 @@ p{
 
 .questions h1{
   font-size: 3em;
+}
+
+.summary button{
+  font-size: x-large;
+}
+
+#initials{
+  background-color: rgb(165, 154, 154);
+}
+
+h2 {
+  font-size: xx-large;
 }
 
 

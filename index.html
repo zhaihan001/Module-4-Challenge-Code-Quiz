@@ -8,7 +8,7 @@
   </head>
   <body>
     <header class="header">
-      <div class= "leftHeader">View high scores</div>
+      <div id="viewScore">View high scores</div>
       <div class= "timerArea">Time: <span id="timer"></span></div>
     </header>
 
@@ -80,9 +80,17 @@
       <section class="summary hide">
         <h1>All done!</h1>
         <h2>Your final score is <span class="finalScore"></span>.</h2>
-        <h3>
-          Enter initials: 
-        </h3>
+        <h2>
+          Enter initials: <input type="text" id="initials"></input>
+          <button type="submit" id="initialButton">Submit</button>
+        </h2>
+      </section>
+
+      <section class="scoreBoard hide">
+        <h1>High scores</h1>
+        <ol id="scoreList"></ol>
+        <button id="backButton">Go back</button>
+        <button id="clear">Clear high scores</button>
       </section>
     </main>
     <script src="Assets/script.js"></script>
