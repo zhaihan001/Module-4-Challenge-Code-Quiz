@@ -1,5 +1,9 @@
 # 04 Web APIs: Code Quiz
 
+Deployment link:
+
+https://zhaihan001.github.io/Module-4-Challenge-Code-Quiz/
+
 ## User Story
 
 ```
